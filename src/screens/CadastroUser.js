@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import {View, Text, StyleSheet, TextInput, Image, Button} from 'react-native';
 
-export default class Tela2 extends Component {
+export default class CadastroUser extends Component {
 
     constructor(props) {
         super(props);
@@ -21,12 +21,11 @@ export default class Tela2 extends Component {
    render(){
        return(
            <View style={styles.container}>
-               <View style={styles.cadastroArea}>
-               <Text style={styles.title}>Cadastre-se</Text>
-
+               <View style={styles.cadastroArea}> 
                 <View style={styles.form}>
                     <View style={styles.areaAvatar}>
                     <Image style={styles.formAvatar} source={require('../img/user.png')}></Image>
+                    <Text style={styles.title}>Cadastre-se</Text>
                     </View> 
                     <View style={styles.formInfo}>
                         <TextInput style={styles.input} placeholder="Digite o Email" value={this.state.formEmail} onChangeText={(formEmail)=>this.setState({formEmail})}></TextInput>
@@ -37,12 +36,8 @@ export default class Tela2 extends Component {
                     </View>
 
                     <Button title="Cadastrar" onPress={this.cadastrar}></Button>
-                </View>
-             
-
-               </View>
-               
-                
+                </View> 
+               </View> 
            </View>
        )
    } 
@@ -60,8 +55,8 @@ const styles = StyleSheet.create({
         padding:10
     },
     title: {
-        fontWeight:"bold",
-        fontSize:23,
+        fontFamily:"Arial",
+        fontSize:20,
         textAlign:"center",
         margin:10
     },

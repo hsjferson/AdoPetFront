@@ -7,26 +7,26 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
-import Tela1 from './src/screens/Tela1';
-import Tela2 from './src/screens/Tela2';
-import Tela3 from './src/screens/Tela3';
+import Welcome from './src/screens/Welcome';
+import CadastroUser from './src/screens/CadastroUser';
+import Anuncios from './src/screens/Anuncios';
 
 const Stack = createStackNavigator ();
   
 export default function App() {
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName="Tela1"> 
+      <Stack.Navigator initialRouteName="Welcome"> 
 
-          <Stack.Screen name="Tela1" component={Tela1} options={{title:'Bem  Vindo',
+          <Stack.Screen name="Welcome" component={Welcome} options={{title:'Bem  Vindo',
           headerStyle: {backgroundColor:'#fff'} , headerTintColor:'#000'  
             }}
           />
 
-          <Stack.Screen name="Tela2" component={Tela2}  options={{title:''}} 
+          <Stack.Screen name="CadastroUser" component={CadastroUser}  options={{title:''}} 
           /> 
 
-          <Stack.Screen name="Tela3" component={Tela3} options={{title:'Anuncios'}} /> 
+          <Stack.Screen name="Anuncios" component={Anuncios} options={{title:'Anuncios Disponiveis'}} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );

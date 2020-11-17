@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createContainer } from '@react-navigation/native';
 
-export default function Tela1 ({navigation}){ 
+export default function Welcome ({navigation}){ 
     
        return(
            <View style={styles.container}>
@@ -18,18 +18,20 @@ export default function Tela1 ({navigation}){
                     <View style={styles.areaButton}>
                         <Button 
                         title="Cadastre-se"  
-                        onPress={() => navigation.navigate('Tela2')}
+                        onPress={() => navigation.navigate('CadastroUser')}
                         />
 
                         <Button  
                         title="Anuncios" 
-                        onPress={() => navigation.navigate('Tela3')}
+                        onPress={() => navigation.navigate('Anuncios')}
                         />
                     </View>
                         
                </View>
                 
            </View>
+
+           
 
 
 
