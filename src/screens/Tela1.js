@@ -1,7 +1,12 @@
 import React, { Component} from 'react';
 import {View, Text, StyleSheet, Button, Image} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createContainer } from '@react-navigation/native';
 
 export default function Tela1 ({navigation}){ 
+    
        return(
            <View style={styles.container}>
                <View style={styles.containerArea}>
@@ -25,6 +30,9 @@ export default function Tela1 ({navigation}){
                </View>
                 
            </View>
+
+
+
        )
     
 }

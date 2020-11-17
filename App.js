@@ -3,7 +3,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native'; 
 import 'react-native-gesture-handler'; 
 import { NavigationContainer } from '@react-navigation/native'; 
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack'; 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 import Tela1 from './src/screens/Tela1';
 import Tela2 from './src/screens/Tela2';
@@ -16,7 +18,7 @@ export default function App() {
     <NavigationContainer >
       <Stack.Navigator initialRouteName="Tela1"> 
 
-          <Stack.Screen name="Tela1" component={Tela1} options={{title:'Bem Vindo',
+          <Stack.Screen name="Tela1" component={Tela1} options={{title:'Bem  Vindo',
           headerStyle: {backgroundColor:'#fff'} , headerTintColor:'#000'  
             }}
           />
