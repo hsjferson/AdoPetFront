@@ -1,11 +1,11 @@
 import React, { Component} from 'react';
-import {View, Text, StyleSheet, FlatList, Image , ActivityIndicator, Button} from 'react-native';  
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createContainer } from '@react-navigation/native';
+import {View, Text, StyleSheet, FlatList, Image , ActivityIndicator, Button} from 'react-native';   
+ 
  
 export default class Anuncios extends Component {
+
+
+    //loading
     constructor(props) {
         super(props);
         this.state ={ 
@@ -13,13 +13,13 @@ export default class Anuncios extends Component {
                 date:[]
         }
     }
-    loadUsers =() => {
-//acessando dados da API
+    //acessando dados da API
+    loadUsers =() => { 
         fetch("https://randomuser.me/api/?results=10")
             .then( res => res.json() )
             .then( res => {
                 this.setState ({
-                    data: res.results || [] ,//array vazio
+                    data: res.results || [] ,// vazio
                     loading: false
                 })
             })
@@ -28,6 +28,7 @@ export default class Anuncios extends Component {
     componentDidMount(){
         this.loadUsers();
     }  
+
     render(){
         if(this.state.loading ) {
             return(
@@ -48,10 +49,11 @@ export default class Anuncios extends Component {
                         <Text style={styles.email}>Usuario:</Text>
                         <Text>Jeferson da Silva</Text>
                     </View> 
-                     <Button 
-                        title="Meu Perfil >"  
-                        onPress={() => navigation.navigate('CadastroUser')}
-                      /> 
+                    <View >  
+                         <Button title="Perfil" onPress = { () => this.props.navigation.navigate('Perfil')  }></Button> 
+                    
+                    </View>
+                     
                 </View> 
                 
                <FlatList 
@@ -67,16 +69,14 @@ export default class Anuncios extends Component {
                                 </View>                            
                             </View>
                         )}
-                        keyExtractor={item => item.email}
-                />   
-
-                     
-                    
+                        keyExtractor={item => item.email} // item que não ira repitir (n repetir)
+                />     
             </View>  
             
         )
     } 
 }
+ 
 const styles = StyleSheet.create({
     icone: {
         width:26,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
         height: 100,
         backgroundColor:"#fff",
         flexDirection:"row",
-        margin:20,
+        margin:10,
         borderRadius:10
     },
     avatar: {

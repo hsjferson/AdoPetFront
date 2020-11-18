@@ -1,8 +1,9 @@
 import React, { Component} from 'react';
-import {View, Text, StyleSheet, TextInput, Image, Button} from 'react-native';
+import {View, Text, StyleSheet, TextInput, Image, Button, Alert} from 'react-native';
 
 export default class CadastroUser extends Component {
-
+ 
+     
     constructor(props) {
         super(props);
         this.state = { 
@@ -11,12 +12,12 @@ export default class CadastroUser extends Component {
             formTelefone:'',
             formSenha:''
         };
-        this.cadastrar = this.cadastrar.bind(this);    
+         
+         
+    } 
+    alterarBotao() {
+        Alert.alert("Add a função cadastrar aqui")
     }
-    cadastrar() {
-
-    }
-
 
    render(){
        return(
@@ -34,8 +35,9 @@ export default class CadastroUser extends Component {
                         <TextInput style={styles.input} secureTextEntry={true} placeholder="Digite a senha" value={this.state.formSenha} onChangeText={(formSenha)=>this.setState({formSenha})}></TextInput>
                        
                     </View>
+                         {/*<Button title="Cadastrar" onPress = { () => this.props.navigation.navigate('Anuncios')  }></Button> */}  
 
-                    <Button title="Cadastrar" onPress={this.cadastrar}></Button>
+                      <Button title="Alterar" onPress = { this.alterarBotao }></Button>
                 </View> 
                </View> 
            </View>

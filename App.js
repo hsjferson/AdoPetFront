@@ -9,7 +9,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Welcome from './src/screens/Welcome';
 import CadastroUser from './src/screens/CadastroUser';
-import Anuncios from './src/screens/Anuncios';
+import Anuncios from './src/screens/Anuncios'; 
+import Perfil from './src/screens/Perfil'; 
 
 const Stack = createStackNavigator ();
   
@@ -18,7 +19,7 @@ export default function App() {
     <NavigationContainer >
       <Stack.Navigator initialRouteName="Welcome"> 
 
-          <Stack.Screen name="Welcome" component={Welcome} options={{title:'Bem  Vindo',
+          <Stack.Screen name="Welcome" component={Welcome} options={{title:'Bem Vindo',
           headerStyle: {backgroundColor:'#fff'} , headerTintColor:'#000'  
             }}
           />
@@ -27,6 +28,8 @@ export default function App() {
           /> 
 
           <Stack.Screen name="Anuncios" component={Anuncios} options={{title:'Anuncios Disponiveis'}} /> 
+
+          <Stack.Screen name="Perfil" component={Perfil} options={{title:'Meu perfil'}} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
