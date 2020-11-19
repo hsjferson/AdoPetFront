@@ -14,7 +14,7 @@ export default function Welcome ({navigation}){
                     <View style={styles.areaLogo} >
                         <Image style={styles.logo} source={require('../img/logo2.png')}></Image>
                     </View>
-                    <Text style={styles.subTitle}>Escolha uma opção</Text> 
+                    <Text style={styles.subTitle}>Escolha uma opção:</Text> 
                     <View style={styles.areaButton}>
                         <Button 
                         title="Cadastre-se"  

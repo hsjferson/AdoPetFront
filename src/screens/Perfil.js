@@ -1,58 +1,144 @@
 import React, { Component} from 'react';
-import {View, Text, StyleSheet, Image, TextInput, Button, Alert} from 'react-native';  
+import {View, Text, StyleSheet, FlatList, Image , ActivityIndicator, Button, Alert} from 'react-native';   
  
  
-export default class Tela4 extends Component {
+export default class Perfil extends Component {
 
+
+    //loading
     constructor(props) {
         super(props);
-        this.state
+        this.state ={ 
+                loading: true,
+                date:[]
+        }
     }
-    apertouBotao() {
-        Alert.alert("Add a função de alterar aqui")
+    //função dos botoes 
+    alterarBotao() {
+        Alert.alert("Add a função alterar aqui")
     }
- 
-     render(){
-         return( 
-                 <View style={styles.container}>
-                    <View style={styles.cadastroArea}>
-                    <Text style={styles.title}>Dados de Usuario</Text> 
-                        <View style={styles.form}>
-                             
+    cadastroAnimalBotao() {
+        Alert.alert("Add a função cadastrar aqui")
+    }
+    //acessando dados da API
+    loadUsers =() => { 
+        fetch("https://randomuser.me/api/?results=10")
+            .then( res => res.json() )
+            .then( res => {
+                this.setState ({
+                    data: res.results || [] ,// vazio
+                    loading: false
+                })
+            })
+    }
+
+    componentDidMount(){
+        this.loadUsers();
+    }  
+
+    render(){ 
+        return(
+            <View style={styles.container}> 
+                <View style={styles.cadastroArea}>
+                        <Text style={styles.title}>Dados de Usuario</Text> 
+                        <View style={styles.form}>   
                             <View style={styles.areaAvatar}>
-                                <Image style={styles.formAvatar} source={require('../img/user.png')}></Image>
-                            </View> 
-                            
-                            <View style={styles.areaInfo}>  
-                                <Text style={styles.infoOptions}>Jeferson da Silva</Text>
-                                <Text style={styles.infoOptions}>jferson9wd@gmail.com</Text>
-                                <Text style={styles.infoOptions}>00 0000 0000</Text>
-                                <Text style={styles.infoOptions}>*********</Text>
-
-                                <Button title="Alterar" onPress = { this.apertouBotao  }></Button>
-                            </View>   
-
-                            
+                                 <Image style={styles.formAvatar} source={require('../img/user.png')}></Image>
+                             </View>  
+                             <View style={styles.areaInfo}>  
+                                 <Text style={styles.infoOptions}>Nome: Jeferson da Silva</Text> 
+                                 <Text style={styles.infoOptions}>Email: jferson9wd@gmail.com</Text>
+                                 <Text style={styles.infoOptions}>Telefone: 00 0000 0000</Text>
+                                 <Text style={styles.infoOptions}>Senha: *********</Text>
+                                
+                                <View style={styles.BtnGeral}>
+                                     <Button title="Alterar" onPress = { this.alterarBotao  }></Button>
+                                </View>   
+                             </View>    
                         </View> 
+                </View> 
+                <View style={styles.anunciosArea}> 
+                    <Text style={styles.title}>Meus Anuncios:</Text> 
+                    <View style={styles.BtnGeral}> 
+                          <Button title="+ Cadastre seu animal" onPress = { () => this.props.navigation.navigate('CadastroAnimal')  }></Button> 
                     </View> 
-                    
-               </View> 
-         )
-     }
-    
-} 
+                    <FlatList   
+                                data={this.state.data}
+                                renderItem={({item,  index, separators })=> (
+                                        
+                                    <View style={styles.line}> 
+                                        
+                                        <Image source={{uri:item.picture.thumbnail}} style={styles.avatar} />
+
+                                        <View style={styles.info}>
+                                            <Text style={styles.email}>{item.email}</Text>
+                                            <Text style={styles.name}>{item.name.first} {item.name.last}</Text>
+                                        </View>                            
+                                    </View>
+                                )}
+                                keyExtractor={item => item.email} // item que não ira repitir (n repetir)
+                        /> 
+                </View>   
+            </View>  
+            
+        )
+    } 
+}
+ 
 const styles = StyleSheet.create({
-    container   : {
-        flex:1, 
-        marginTop:20, 
+    icone: {
+        width:26,
+        height:26
+    }, 
+    loadingText: {
+        fontSize:15,
+        fontWeight:"bold",
+        margin:20
     },
-    cadastroArea: {
-        height:200, 
+    container: {
+        flex:1,
+        justifyContent:"center"
+    },
+    line: {
+        height: 100,
+        backgroundColor:"#fff",
+        flexDirection:"row",
         margin:10,
-        padding:10
+        borderRadius:10
+    },
+    avatar: {
+        width:60,
+        height:60,
+        borderRadius:5, 
+        margin:10,
+        alignSelf:"center"
+    },
+    info: {
+        flexDirection:"column",
+        justifyContent:"flex-start",
+        margin:20,
+         
     },
     title: {
-        fontWeight:"bold"
+        fontWeight:"bold", 
+    },  
+    name: {
+        fontSize:15
+    },  
+    BtnGeral: { 
+        justifyContent:"center",
+        flexDirection:"row",   
+        backgroundColor:"#92e5c9", 
+        alignItems:"center"
+    },
+    cadastroArea: {
+        height:200,  
+        padding:10,  
+    },
+    anunciosArea:{ 
+        maxHeight:450,
+        margin:10,
+        padding:10, 
     },
     form: {
         flex:1, 
@@ -64,16 +150,13 @@ const styles = StyleSheet.create({
     },  
     infoOptions: {
         fontFamily:"Arial",
-        fontSize:15,
+        fontSize:17,
         textAlign:"left", 
           
-    },
-    areaAvatar: { 
-        alignItems:"center", 
-    },
+    }, 
     formAvatar: {
         width:50,
         height:50, 
         margin:15,
-    },  
+    },
 })
