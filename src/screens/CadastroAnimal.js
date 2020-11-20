@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import {View, Text, StyleSheet, TextInput, Image, Button, Alert} from 'react-native';
+import {View, Text, StyleSheet, TextInput, Image, Button, Alert,TouchableOpacity} from 'react-native';
 
 export default class CadastroAnimal extends Component {
  
@@ -38,9 +38,9 @@ export default class CadastroAnimal extends Component {
                         
                         </View>
                         <View style={styles.BtnGeral}> 
-                            {/*<Button title="Cadastrar" onPress = { () => this.props.navigation.navigate('Anuncios')  }></Button> */}  
-
-                        <Button title="Alterar" onPress = { this.alterarBotao }></Button>
+                            {/*<Button title="Cadastrar" onPress = { () => this.props.navigation.navigate('Anuncios')  }></Button> */}   
+                            <TouchableOpacity  onPress = { this.alterarBotao } style={styles.button}><Text style={styles.totuloBotao}>Cadastrar</Text></TouchableOpacity>
+                             
                         </View>
                     </View> 
                </View> 
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         flex:1,  
     },
     cadastroArea: {
-        height:500, 
+        height:550, 
         margin:10, 
         padding:10, 
     },
@@ -82,15 +82,28 @@ const styles = StyleSheet.create({
 
     },
     input: {
-        height:40,
-        borderWidth:1,
-        borderColor:'#000',
+        height:45, 
+        backgroundColor:"#fff", 
         margin:5,
         borderRadius:5
     },
 
-    BtnGeral: { 
-        justifyContent:"center", 
-        backgroundColor:"#92e5c9",  
+    BtnGeral: {   
+        alignItems:"center",
+        justifyContent:"center",   
+        margin:10
     },
+    button:{ 
+        height:50,
+        backgroundColor:"#475F94",
+        borderRadius:30,
+        width:150,
+        alignContent:"center",
+        justifyContent:"center",
+        alignItems:"center",
+    },
+    totuloBotao:{  
+        fontWeight:"bold",
+        color:"#fff"
+    }
 })

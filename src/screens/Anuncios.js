@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import {View, Text, StyleSheet, FlatList, Image , ActivityIndicator, Button} from 'react-native';   
+import {View, Text, StyleSheet, FlatList, Image , ActivityIndicator, Button,TouchableOpacity} from 'react-native';   
  
  
 export default class Anuncios extends Component {
@@ -44,15 +44,15 @@ export default class Anuncios extends Component {
         }
         return(
             <View style={styles.container}>
-                <View style={styles.botaoArea}>
+                <View style={styles.statusArea}>
                     <View style={styles.userArea}>
                         <Text style={styles.email}>Usuario:</Text>
                         <Text>Jeferson da Silva</Text>
                     </View> 
-                    <View >  
-                         <Button title="Perfil" onPress = { () => this.props.navigation.navigate('Perfil')  }></Button> 
+                    <View style={styles.BtnGeral}> 
+                         <TouchableOpacity  onPress = { () => this.props.navigation.navigate('Perfil')  } style={styles.button}><Text style={styles.totuloBotao}>Meu Perfil</Text></TouchableOpacity> 
                     
-                    </View>
+                    </View> 
                      
                 </View> 
                 
@@ -123,10 +123,9 @@ const styles = StyleSheet.create({
         fontSize:14,
         fontWeight:"bold"
     },
-    botaoArea: {  
+    statusArea: {  
         flexDirection:"row",
-        justifyContent:"center", 
-        backgroundColor:"#4ecca3", 
+        justifyContent:"center",  
         textAlign:"center",
         height:70
     },
@@ -134,7 +133,25 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:"center",
         flexDirection:"row",   
-        backgroundColor:"#92e5c9", 
         alignItems:"center"
+    },
+    BtnGeral: {   
+        alignItems:"center",
+        justifyContent:"center",  
+        padding:5
+    },
+    button:{ 
+        height:40,
+        backgroundColor:"#475F94",
+        borderRadius:30,
+        width:140, 
+        justifyContent:"center",
+        alignItems:"center",
+    },
+    totuloBotao:{  
+        fontWeight:"bold",
+
+        color:"#fff"
     }
+    
 })
