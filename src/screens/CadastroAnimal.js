@@ -73,16 +73,14 @@ const styles = StyleSheet.create({
         margin:15,
     },
     form: {
-        flexDirection:"column", 
-        flex:1
+        flexDirection:"column",  
     },
-    formInfo: {
-        flex:1, 
+    formInfo: { 
         padding:10
 
     },
     input: {
-        height:45, 
+        height:40, 
         backgroundColor:"#fff", 
         margin:5,
         borderRadius:5
@@ -94,13 +92,20 @@ const styles = StyleSheet.create({
         margin:10
     },
     button:{ 
-        height:50,
+        height:40,
         backgroundColor:"#475F94",
         borderRadius:30,
         width:150,
         alignContent:"center",
         justifyContent:"center",
         alignItems:"center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width:3,
+            height: 3,
+        },
+        shadowOpacity: 0.50,
+        shadowRadius: 4.65,
     },
     totuloBotao:{  
         fontWeight:"bold",

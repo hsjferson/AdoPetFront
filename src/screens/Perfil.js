@@ -97,8 +97,7 @@ const styles = StyleSheet.create({
         fontWeight:"bold",
         margin:20
     },
-    container: {
-        flex:1,
+    container: { 
         justifyContent:"center"
     },
     line: {
@@ -106,7 +105,13 @@ const styles = StyleSheet.create({
         backgroundColor:"#fff",
         flexDirection:"row",
         margin:10,
-        borderRadius:10
+        borderRadius:10,
+        shadowOffset: {
+            width:5,
+            height: 5,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 3.65,
     },
     avatar: {
         width:60,
@@ -136,6 +141,7 @@ const styles = StyleSheet.create({
     },
     cadastroArea: {
         height:200,  
+        backgroundColor:"#fff",
         padding:10,  
     },
     anunciosArea:{ 
@@ -145,7 +151,7 @@ const styles = StyleSheet.create({
     },
     form: {
         flex:1, 
-        backgroundColor:"#FFF",
+        backgroundColor:"#5cce9d",
         height:100, 
         flexDirection:"row",
         borderRadius:10,
@@ -171,6 +177,13 @@ const styles = StyleSheet.create({
         alignContent:"center",
         justifyContent:"center",
         alignItems:"center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width:5,
+            height: 5,
+        },
+        shadowOpacity: 0.50,
+        shadowRadius: 4.65,
     },
     totuloBotao:{  
         fontWeight:"bold",

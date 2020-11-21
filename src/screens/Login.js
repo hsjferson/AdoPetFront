@@ -1,6 +1,7 @@
 import React, { Component , useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Image, Button, Alert, Br, SafeAreaView, TouchableOpacity } from 'react-native'; 
-export default class CadastroUser extends Component {
+
+export default class Login extends Component {
  
      
     constructor(props) {
@@ -13,27 +14,26 @@ export default class CadastroUser extends Component {
         }; 
     } 
     alterarBotao() {
-        Alert.alert("Add a função cadastrar aqui")
-    } 
+        Alert.alert("Login deve ficar aqui")
+    }
    render(){ 
        return(
            <View style={styles.container}> 
                <View style={styles.cadastroArea}> 
                     <SafeAreaView style={styles.form}>
                         <View style={styles.areaAvatar}>
-                            <Image style={styles.formAvatar} source={require('../img/cadastroUser.png')}></Image>
+                             <Image style={styles.formAvatar} source={require('../img/user.png')}></Image>
                              <Text style={styles.title}>Cadastre-se</Text>
                         </View> 
-                        <View style={styles.formInfo}>
-                            <TextInput style={styles.input} placeholder=" Digite o Nome" value={this.state.formNome} onChangeText={(formNome)=>this.setState({formNome})}></TextInput>
+                        <View style={styles.formInfo}> 
                             <TextInput style={styles.input} placeholder=" Digite o Email" value={this.state.formEmail} onChangeText={(formEmail)=>this.setState({formEmail})}></TextInput>
-                            <TextInput style={styles.input} placeholder=" Digite o Telefone" value={this.state.formTelefone} onChangeText={(formTelefone)=>this.setState({formTelefone})}></TextInput>
+                            
                             <TextInput style={styles.input} secureTextEntry={true} placeholder=" Digite a senha" value={this.state.formSenha} onChangeText={(formSenha)=>this.setState({formSenha})}></TextInput>
                         
                         </View>
                         <View style={styles.BtnGeral}> 
                             {/*<Button title="Cadastrar" onPress = { () => this.props.navigation.navigate('Anuncios')  }></Button> */}   
-                            <TouchableOpacity  onPress = { this.alterarBotao } style={styles.button}><Text style={styles.totuloBotao}>Cadastre-se</Text></TouchableOpacity>
+                            <TouchableOpacity  onPress = { this.alterarBotao } style={styles.button}><Text style={styles.totuloBotao}>Login</Text></TouchableOpacity>
                              
                         </View>
                     </SafeAreaView> 

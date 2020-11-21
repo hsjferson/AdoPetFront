@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import {View, Text, StyleSheet, FlatList, Image , ActivityIndicator, Button,TouchableOpacity} from 'react-native';   
+import {View, Text, StyleSheet, FlatList, Image , ActivityIndicator, Button,TouchableOpacity, Modal,Alert} from 'react-native';   
  
  
 export default class Anuncios extends Component {
@@ -9,11 +9,15 @@ export default class Anuncios extends Component {
     constructor(props) {
         super(props);
         this.state ={ 
+           //  modalAberto:false,
                 loading: true,
-                date:[]
-        }
+                date:[] 
+  
+        }; 
+       // this.abrirModal = this.abrirModal.bind(this);
+      //  this.fecharModal = this.fecharModal.bind(this);
     }
-    //acessando dados da API
+    
     loadUsers =() => { 
         fetch("https://randomuser.me/api/?results=10")
             .then( res => res.json() )
@@ -23,7 +27,7 @@ export default class Anuncios extends Component {
                     loading: false
                 })
             })
-    }
+    } 
 
     componentDidMount(){
         this.loadUsers();
@@ -37,10 +41,8 @@ export default class Anuncios extends Component {
                         size="large" color="#000"  
                     />
                     <Text style={styles.loadingText}>Aguardando dados da API</Text>
-                </View>
-
-            )
-                    
+                </View> 
+            )      
         }
         return(
             <View style={styles.container}>
@@ -54,25 +56,25 @@ export default class Anuncios extends Component {
                     
                     </View> 
                      
-                </View> 
-                
-               <FlatList 
+                </View>   
+               <FlatList   
                         data={this.state.data}
                         renderItem={({item,  index, separators })=> (
+                            <TouchableOpacity  onPress = { () => this.props.navigation.navigate('PagAnuncio')  } > 
+                                <View   style={styles.line}>  
+                                    <Image source={{uri:item.picture.thumbnail}} style={styles.avatar} />
 
-                            <View style={styles.line}> 
-                                <Image source={{uri:item.picture.thumbnail}} style={styles.avatar} />
-
-                                <View style={styles.info}>
-                                    <Text style={styles.email}>{item.email}</Text>
-                                    <Text style={styles.name}>{item.name.first} {item.name.last}</Text>
-                                </View>                            
-                            </View>
+                                    <View style={styles.info}>
+                                        <Text style={styles.email}>{item.email}</Text>
+                                        <Text style={styles.name}>{item.name.first} {item.name.last}</Text>
+                                        
+                                    </View>   
+                                </View>
+                            </TouchableOpacity> 
                         )}
-                        keyExtractor={item => item.email} // item que não ira repitir (n repetir)
-                />     
-            </View>  
-            
+                        keyExtractor={item => item.email}> 
+                </FlatList> 
+            </View>   
         )
     } 
 }
@@ -101,7 +103,14 @@ const styles = StyleSheet.create({
         backgroundColor:"#fff",
         flexDirection:"row",
         margin:10,
-        borderRadius:10
+        borderRadius:10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width:20,
+            height: 5,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
     },
     avatar: {
         width:60,
@@ -123,9 +132,10 @@ const styles = StyleSheet.create({
         fontSize:14,
         fontWeight:"bold"
     },
-    statusArea: {  
+    statusArea: {   
         flexDirection:"row",
         justifyContent:"center",  
+        backgroundColor:"#5cce9d",
         textAlign:"center",
         height:70
     },
@@ -147,6 +157,13 @@ const styles = StyleSheet.create({
         width:140, 
         justifyContent:"center",
         alignItems:"center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width:5,
+            height: 5,
+        },
+        shadowOpacity: 0.50,
+        shadowRadius: 4.65,
     },
     totuloBotao:{  
         fontWeight:"bold",

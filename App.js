@@ -12,6 +12,8 @@ import CadastroUser from './src/screens/CadastroUser';
 import Anuncios from './src/screens/Anuncios'; 
 import Perfil from './src/screens/Perfil'; 
 import CadastroAnimal from './src/screens/CadastroAnimal'; 
+import Login from './src/screens/Login'; 
+import PagAnuncio from './src/screens/PagAnuncio'; 
 
 const Stack = createStackNavigator ();
   
@@ -33,6 +35,10 @@ export default function App() {
           <Stack.Screen name="Perfil" component={Perfil} options={{title:'Meu perfil'}} /> 
 
           <Stack.Screen name="CadastroAnimal" component={CadastroAnimal} options={{title:'Cadastre'}} /> 
+
+          <Stack.Screen name="Login" component={Login} options={{title:'Login'}} /> 
+
+          <Stack.Screen name="PagAnuncio" component={PagAnuncio} options={{title:'PagAnuncio'}} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
