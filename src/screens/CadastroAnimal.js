@@ -22,7 +22,7 @@ export default class CadastroAnimal extends Component {
    render(){
        return(
            <View style={styles.container}>
-               <View style={styles.cadastroArea}> 
+               <View style={styles.cadastroArea} behavior="padding"> 
                     <View style={styles.form}>
                         <View style={styles.areaAvatar}>
                         <Image style={styles.formAvatar} source={require('../img/cadastroAnimal.png')}></Image>

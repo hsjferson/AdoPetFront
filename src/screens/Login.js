@@ -1,6 +1,12 @@
 import React, { Component , useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Image, Button, Alert, Br, SafeAreaView, TouchableOpacity } from 'react-native'; 
 
+//import Api from '../Api';
+
+//const loginClick =() => {
+
+//}
+ 
 export default class Login extends Component {
  
      
@@ -14,8 +20,9 @@ export default class Login extends Component {
         }; 
     } 
     alterarBotao() {
-        Alert.alert("Login deve ficar aqui")
-    }
+        Alert.alert("Add a função cadastrar aqui")
+    } 
+      
    render(){ 
        return(
            <View style={styles.container}> 

@@ -27,7 +27,7 @@ export default class Perfil extends Component {
                     loading: false
                 })
             })
-    }
+    } 
 
     componentDidMount(){
         this.loadUsers();

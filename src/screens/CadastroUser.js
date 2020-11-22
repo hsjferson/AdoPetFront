@@ -1,5 +1,9 @@
 import React, { Component , useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Image, Button, Alert, Br, SafeAreaView, TouchableOpacity } from 'react-native'; 
+
+
+ 
+
 export default class CadastroUser extends Component {
  
      
