@@ -1,9 +1,9 @@
- //const BASE_API = 'https://api.b7web.com.br/devbarber/api';
+ //const BASE_API = 'https://enderecodaapi.com.br';
 
 {/*  
  export default {
      checkLogin: async(token) => {
-        const req = await fetch('${BASE_API}/auth/login', {
+        const req = await fetch('${BASE_API}/auth/login', {  // endereço da autenticação
             method:'POST', //metodo
             header:{
                  Accept:'application/json',
