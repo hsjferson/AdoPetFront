@@ -25,7 +25,7 @@ export default class CadastroUser extends Component {
                <View style={styles.cadastroArea}> 
                     <SafeAreaView style={styles.form}>
                         <View style={styles.areaAvatar}>
-                            <Image style={styles.formAvatar} source={require('../img/cadastroUser.png')}></Image>
+                        <Image style={styles.formAvatar} source={require('../img/user.png')}></Image>
                              <Text style={styles.title}>Cadastre-se</Text>
                         </View> 
                         <View style={styles.formInfo}>
