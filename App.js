@@ -38,7 +38,7 @@ export default function App() {
 
           <Stack.Screen name="Login" component={Login} options={{title:'Login'}} /> 
 
-          <Stack.Screen name="PagAnuncio" component={PagAnuncio} options={{title:'PagAnuncio'}} /> 
+          <Stack.Screen name="PagAnuncio" component={PagAnuncio} options={{title:'Anuncio'}} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );

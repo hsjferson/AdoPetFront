@@ -19,7 +19,7 @@ export default class Anuncios extends Component {
     }
     
     loadUsers =() => { 
-        fetch("https://randomuser.me/api/?results=10")
+        fetch("https://randomuser.me/api/?results=100")
             .then( res => res.json() )
             .then( res => {
                 this.setState ({
@@ -50,6 +50,7 @@ export default class Anuncios extends Component {
                     <View style={styles.userArea}>
                         <Text style={styles.email}>Usuario:</Text>
                         <Text>Jeferson da Silva</Text>
+                        
                     </View> 
                     <View style={styles.BtnGeral}> 
                          <TouchableOpacity  onPress = { () => this.props.navigation.navigate('Perfil')  } style={styles.button}><Text style={styles.totuloBotao}>Meu Perfil</Text></TouchableOpacity> 
@@ -62,11 +63,15 @@ export default class Anuncios extends Component {
                         renderItem={({item,  index, separators })=> (
                             <TouchableOpacity  onPress = { () => this.props.navigation.navigate('PagAnuncio')  } > 
                                 <View   style={styles.line}>  
-                                    <Image source={{uri:item.picture.thumbnail}} style={styles.avatar} />
+                                
+                                    <Image style={styles.imagemAnimal} source={require('../img/pastor2.jpg')}></Image>
 
                                     <View style={styles.info}>
-                                        <Text style={styles.email}>{item.email}</Text>
-                                        <Text style={styles.name}>{item.name.first} {item.name.last}</Text>
+                                        <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Tipo: </Text> Cães</Text> 
+                                        <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Raça: </Text> Pastor-alemão</Text>  
+                                        <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Porte: </Text> P</Text>
+                                        <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Idade: </Text> 5 Anos</Text>  
+                                        <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Quantidade: </Text> 1</Text>  
                                         
                                     </View>   
                                 </View>
@@ -99,18 +104,26 @@ const styles = StyleSheet.create({
         justifyContent:"center"
     },
     line: {
-        height: 100,
+        height: 130,
         backgroundColor:"#fff",
         flexDirection:"row",
         margin:10,
         borderRadius:10,
         shadowColor: "#000",
         shadowOffset: {
-            width:20,
+            width:10,
             height: 5,
         },
         shadowOpacity: 0.30,
         shadowRadius: 4.65,
+    },
+    imagemAnimal: {
+        height:100,
+        borderRadius:3,   
+        alignItems:"center",
+        justifyContent:"center",
+        margin:10,
+        flex:1
     },
     avatar: {
         width:60,

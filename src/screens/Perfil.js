@@ -70,12 +70,16 @@ export default class Perfil extends Component {
                                         
                                     <View style={styles.line}> 
                                         
-                                        <Image source={{uri:item.picture.thumbnail}} style={styles.avatar} />
+                                        <Image style={styles.imagemAnimal} source={require('../img/pastor2.jpg')}></Image>
 
                                         <View style={styles.info}>
-                                            <Text style={styles.email}>{item.email}</Text>
-                                            <Text style={styles.name}>{item.name.first} {item.name.last}</Text>
-                                        </View>                            
+                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Tipo: </Text> Cães</Text> 
+                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Raça: </Text> Pastor-alemão</Text>  
+                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Porte: </Text> P</Text>
+                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Idade: </Text> 5 Anos</Text>  
+                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Quantidade: </Text> 1</Text>    
+                                            
+                                        </View>                              
                                     </View>
                                 )}
                                 keyExtractor={item => item.email} // item que não ira repitir (n repetir)
@@ -100,8 +104,17 @@ const styles = StyleSheet.create({
     container: { 
         justifyContent:"center"
     },
+    imagemAnimal: {
+        height:100,
+        borderRadius:3,    
+        width:120,
+        alignItems:"center",
+        justifyContent:"center",
+        margin:10,
+        flex:1
+    },
     line: {
-        height: 100,
+        height: 130,
         backgroundColor:"#fff",
         flexDirection:"row",
         margin:10,
@@ -119,7 +132,7 @@ const styles = StyleSheet.create({
         borderRadius:5, 
         margin:10,
         alignSelf:"center"
-    },
+    }, 
     info: {
         flexDirection:"column",
         justifyContent:"flex-start",

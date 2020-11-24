@@ -1,5 +1,6 @@
 import React, { Component , useState} from 'react';
 import {View,FlatList, Text, StyleSheet, TextInput, Image, Button, Alert, Br, SafeAreaView, TouchableOpacity } from 'react-native'; 
+import { color } from 'react-native-reanimated';
 
 export default class PagAnuncio extends Component { 
 
@@ -38,11 +39,22 @@ export default class PagAnuncio extends Component {
                         renderItem={({item,  index, separators })=> (
                             <TouchableOpacity  onPress = { () => this.props.navigation.navigate('PagAnuncio')  } > 
                                 <View   style={styles.line}>  
-                                    <Image source={{uri:item.picture.thumbnail}} style={styles.avatar} />
+                                <Image style={styles.imagemAnimal} source={require('../img/pastor2.jpg')}></Image>
 
                                     <View style={styles.info}>
-                                        <Text style={styles.email}>{item.email}</Text>
-                                        <Text style={styles.name}>{item.name.first} {item.name.last}</Text>
+                                         <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Dados do Animal </Text> </Text>
+                                         <Text style={styles.anunciante}><Text style={{fontWeight: "bold"}}> Tipo: </Text> Cães</Text> 
+                                        <Text style={styles.anunciante}><Text style={{fontWeight: "bold"}}> Raça: </Text> Pastor-alemão</Text>  
+                                        <Text style={styles.anunciante}><Text style={{fontWeight: "bold"}}> Porte: </Text> P</Text>
+                                        <Text style={styles.anunciante}><Text style={{fontWeight: "bold"}}> Idade: </Text> 5 Anos</Text>  
+                                        <Text style={styles.anunciante}><Text style={{fontWeight: "bold"}}> Quantidade: </Text> 1</Text>
+                                        
+                                    </View>  
+                                    <View style={styles.info}>
+                                         <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Dados do Anunciante </Text> </Text>
+                                        <Text style={styles.anunciante}><Text style={{fontWeight: "bold"}}> Anunciante: </Text> Pastor-alemão</Text>  
+                                        <Text style={styles.anunciante}><Text style={{fontWeight: "bold"}}> E-mail: </Text>jferson123@gmail.com</Text>
+                                        <Text style={styles.anunciante}><Text style={{fontWeight: "bold"}}> Telefone: </Text>(43)7777-7777</Text>   
                                         
                                     </View>   
                                 </View>
@@ -66,16 +78,20 @@ const styles = StyleSheet.create({
     },
     line: {   
         flexDirection:"column",
-        margin:10,
+        margin:10, 
+        alignItems:"center",
         borderRadius:10,
         shadowColor: "#000",
         shadowOffset: {
-            width:10,
-            height: 5,
+            width:2, 
         },
         shadowOpacity: 0.30,
-        shadowRadius: 4.65,
+        shadowRadius: 5.65,
     } ,
+    imagemAnimal: {
+        width:380,
+        height:300
+    },
     avatar: {
         width:320,
         height:320,
@@ -83,13 +99,18 @@ const styles = StyleSheet.create({
         margin:10,
         alignSelf:"center"
     },
-    info: {
-        flex:1, 
-        margin:20,
+    info: { 
+        width:380,
+        margin:20,  
+        fontSize:30,
          
     },
     name: {
-        fontSize:15
+        fontSize:19
+    },
+    anunciante: {
+        fontSize:16,
+        color:"#5b5b5b"
     },
     email:{
         fontSize:14,
