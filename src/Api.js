@@ -1,4 +1,4 @@
- //const BASE_API = 'https://api.b7web.com.br/devbarber/api';
+ //const BASE_API = 'https://enderecodaapi.com.br/api';
 
 {/*  
  export default {
