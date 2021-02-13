@@ -1,10 +1,8 @@
 import React, { Component} from 'react';
 import {View, Text, StyleSheet, FlatList, Image , ActivityIndicator, Button,TouchableOpacity, Modal,Alert} from 'react-native';   
+import { Ionicons } from '@expo/vector-icons';  
  
- 
-export default class Anuncios extends Component {
-
-
+export default class Anuncios extends Component { 
     //loading
     constructor(props) {
         super(props);
@@ -47,15 +45,13 @@ export default class Anuncios extends Component {
         return(
             <View style={styles.container}>
                 <View style={styles.statusArea}>
-                    <View style={styles.userArea}>
-                        <Text style={styles.email}>Usuario:</Text>
-                        <Text>Jeferson da Silva</Text>
-                        
-                    </View> 
-                    <View style={styles.BtnGeral}> 
-                         <TouchableOpacity  onPress = { () => this.props.navigation.navigate('Perfil')  } style={styles.button}><Text style={styles.totuloBotao}>Meu Perfil</Text></TouchableOpacity> 
-                    
-                    </View> 
+                    <View style={styles.userArea}> 
+                        <Text style={styles.nome}>Jeferson da Silva</Text> 
+                    </View>  
+                    <TouchableOpacity style={styles.nextArea} onPress = { () => this.props.navigation.navigate('Perfil')  } >   
+                       <Text style={styles.nextText}>Meu perfil</Text>  
+                       <Ionicons name="arrow-forward-outline" size={20} color={'#4350c6'}  /> 
+                     </TouchableOpacity>
                      
                 </View>   
                <FlatList   
@@ -64,16 +60,21 @@ export default class Anuncios extends Component {
                             <TouchableOpacity  onPress = { () => this.props.navigation.navigate('PagAnuncio')  } > 
                                 <View   style={styles.line}>  
                                 
-                                    <Image style={styles.imagemAnimal} source={require('../img/pastor2.jpg')}></Image>
+                                    <Image style={styles.imagemAnimal} source={require('../img/mascara_adidas.jpg')}></Image>
 
-                                    <View style={styles.info}>
-                                        <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Tipo: </Text> Cães</Text> 
-                                        <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Raça: </Text> Pastor-alemão</Text>  
-                                        <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Porte: </Text> P</Text>
-                                        <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Idade: </Text> 5 Anos</Text>  
-                                        <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Quantidade: </Text> 1</Text>  
-                                        
-                                    </View>   
+                                    <View style={styles.areaAnuncio}>  
+                                        <View style={styles.info}>
+                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Tipo: </Text> Cães</Text> 
+                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Raça: </Text> Pastor-alemão</Text>  
+                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Porte: </Text> P</Text>
+                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Idade: </Text> 5 Anos</Text>   
+                                            
+                                        </View> 
+                                        <View style={styles.info_t}>
+                                             <Ionicons name="add-circle-outline" size={30} color={"#777"}/>
+                                            
+                                        </View>
+                                    </View>  
                                 </View>
                             </TouchableOpacity> 
                         )}
@@ -90,9 +91,30 @@ const styles = StyleSheet.create({
         height:26
     },
     containerLoading: {
-      flex:1,
+      flex:1, 
       justifyContent:"center"  ,
       alignItems:"center"
+    }, 
+    statusArea: {   
+        flexDirection:"row",
+        justifyContent:'space-evenly',  
+        alignItems:"center", 
+        height:70
+    },
+    nextArea: {
+        fontSize:17,
+        fontWeight:'bold',  
+        marginRight:20,  
+        margin:10,
+        color:"#4350c6",  
+        flexDirection:'row'
+    }, 
+    nextText: {
+        fontSize:15,
+        fontWeight:'bold',
+        textAlign:'right', 
+        marginRight:5,
+        color:"#4350c6",
     },
     loadingText: {
         fontSize:15,
@@ -101,29 +123,35 @@ const styles = StyleSheet.create({
     },
     container: {
         flex:1,
-        justifyContent:"center"
+        justifyContent:"center", 
+        margin:5,
     },
     line: {
         height: 130,
         backgroundColor:"#fff",
         flexDirection:"row",
         margin:10,
-        borderRadius:10,
-        shadowColor: "#000",
+        borderRadius:5,
+        shadowColor: "#777",
         shadowOffset: {
-            width:10,
-            height: 5,
+            width:8,
+            height: 4,
         },
+        opacity:2,
         shadowOpacity: 0.30,
-        shadowRadius: 4.65,
+        shadowRadius: 10.65,
     },
-    imagemAnimal: {
-        height:100,
-        borderRadius:3,   
+    areaAnuncio: {
+        flexDirection:'column',  
+    },
+    imagemAnimal: { 
+        borderTopLeftRadius:3,   
+        borderBottomLeftRadius:3,   
         alignItems:"center",
-        justifyContent:"center",
-        margin:10,
-        flex:1
+        justifyContent:"center",  
+        flex:1,
+        height:'auto',
+        width:'auto'
     },
     avatar: {
         width:60,
@@ -135,53 +163,27 @@ const styles = StyleSheet.create({
     info: {
         flexDirection:"column",
         justifyContent:"flex-start",
-        margin:20,
+        margin:7, 
          
     },
+    info_t : {
+        alignItems:"flex-end", 
+        marginRight:5
+    },
     name: {
-        fontSize:15
+        fontSize:15,
+        color:"#4350c6"
     },
-    email:{
-        fontSize:14,
-        fontWeight:"bold"
-    },
-    statusArea: {   
-        flexDirection:"row",
-        justifyContent:"center",  
-        backgroundColor:"#5cce9d",
-        textAlign:"center",
-        height:70
-    },
+    nome:{
+        fontSize:16,
+        fontWeight:"bold",
+        color:'#4350c6'
+    }, 
     userArea: {
         flex:1,
         justifyContent:"center",
         flexDirection:"row",   
         alignItems:"center"
-    },
-    BtnGeral: {   
-        alignItems:"center",
-        justifyContent:"center",  
-        padding:5
-    },
-    button:{ 
-        height:40,
-        backgroundColor:"#475F94",
-        borderRadius:30,
-        width:140, 
-        justifyContent:"center",
-        alignItems:"center",
-        shadowColor: "#000",
-        shadowOffset: {
-            width:5,
-            height: 5,
-        },
-        shadowOpacity: 0.50,
-        shadowRadius: 4.65,
-    },
-    totuloBotao:{  
-        fontWeight:"bold",
-
-        color:"#fff"
-    }
+    },   
     
 })

@@ -13,12 +13,27 @@ import Anuncios from './src/screens/Anuncios';
 import Perfil from './src/screens/Perfil'; 
 import CadastroAnimal from './src/screens/CadastroAnimal'; 
 import Login from './src/screens/Login'; 
-import PagAnuncio from './src/screens/PagAnuncio'; 
+import PagAnuncio from './src/screens/PagAnuncio';   
+import { useFonts , Comfortaa_400Regular, Comfortaa_500Medium, Comfortaa_700Bold} from '@expo-google-fonts/comfortaa';
+import { OpenSans_400Regular  } from '@expo-google-fonts/open-sans';
+import { AppLoading } from 'expo';
 
 const Stack = createStackNavigator ();
   
 export default function App() {
-  return (
+
+  let [fontsLoaded] = useFonts ({
+    Comfortaa_400Regular,
+    Comfortaa_500Medium,
+    Comfortaa_700Bold,
+    OpenSans_400Regular
+  });
+
+  if(!fontsLoaded) {
+    return <AppLoading/>; 
+  } 
+
+  return ( 
     <NavigationContainer >
       <Stack.Navigator initialRouteName="Welcome"> 
 

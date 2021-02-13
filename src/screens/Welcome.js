@@ -5,6 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createContainer } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';  
+import GradientButton from 'react-native-gradient-buttons';
  
 export default function Welcome ({navigation}){ 
      
@@ -13,26 +15,30 @@ export default function Welcome ({navigation}){
                <ImageBackground source={require('../img/fundo.jpg')}  style={styles.bgimages}>
                     <View style={styles.containerArea}> 
                             <View style={styles.areaAvatar}>
-                                <Image style={styles.formAvatar} source={require('../img/logo1.png')}></Image> 
+                                 <Text style={styles.logo}>UMask</Text>
+                                 <Text style={styles.slogan}>M a s c a r a s</Text>
                             </View>  
-                            <View style={styles.btnGeral}> 
-                                <TouchableOpacity 
-                                title="Login"  
-                                onPress={() => navigation.navigate('Login')} style={styles.button}
-                                 ><Text style={styles.totuloBotao}>Login</Text>
-                                </TouchableOpacity >
+                            <View style={styles.btnGeral}>  
 
-                                <TouchableOpacity 
-                                title="Meus anuncios"  
-                                onPress={() => navigation.navigate('Anuncios')} style={styles.button}
-                                 ><Text style={styles.totuloBotao}>Anuncios</Text>
-                                </TouchableOpacity >
-                                <Text style={styles.subTitle}>Não possui uma conta?</Text> 
-                                <TouchableOpacity 
-                                title="Cadastre-se"  
-                                onPress={() => navigation.navigate('CadastroUser')} style={styles.button}
-                                 ><Text style={styles.totuloBotao}>Criar conta</Text>
-                                </TouchableOpacity >
+                                <TouchableOpacity  onPress={() => navigation.navigate('Login')} style={styles.button} >
+                                    <GradientButton   style={{ marginVertical: 8 }} 
+                                        style={styles.btn}> 
+                                        <Text style={styles.totuloBotao}>Login</Text> 
+                                    </GradientButton>
+                                </TouchableOpacity> 
+
+                                <TouchableOpacity  onPress={() => navigation.navigate('CadastroUser')}  style={styles.button}  >
+                                    <GradientButton   style={{ marginVertical: 8 }} 
+                                        style={styles.btn}> 
+                                        <Text style={styles.totuloBotao}>Cadastre-se</Text> 
+                                    </GradientButton>
+                                </TouchableOpacity> 
+
+                                <TouchableOpacity style={styles.nextArea} onPress={() => navigation.navigate('Anuncios')} >   
+                                        <Text style={styles.nextText}>Pular</Text>  
+                                        <Ionicons name="arrow-forward-outline" size={20} color={'#4350c6'}  /> 
+                                </TouchableOpacity>
+                                  
                             </View>
                                 
                     </View>
@@ -49,50 +55,77 @@ const styles = StyleSheet.create({
         justifyContent:"center",  
          
     }, 
-    containerArea: {
-           flex:1,
+    containerArea: { 
+        flex:1,
+        width:'100%',  
         padding:10,
         justifyContent:"center", 
+        alignItems:"center",
     },
     bgimages: {
         flex:1,
         width:null
-      },  
+      }, 
+      logo: {
+        fontSize:50, 
+        fontFamily:'Comfortaa_700Bold',
+        color:'#4350c6'
+    },  
+    slogan : {
+        fontFamily:'OpenSans_400Regular',
+        fontSize:18,
+        color:'#4350c6',
+        fontWeight:'bold'
+    },
     subTitle: { 
         fontSize:20,
         textAlign:"center",
         marginTop:30, 
     },
     areaAvatar: {  
-        alignItems:"center"
+        alignItems:"center",
+        margin:20
     },
 
     formAvatar: {  
         margin:15,
     },
     BtnGeral: {         
-        margin:10,  
-        flexDirection:"row",
-        backgroundColor:"#777"
+        margin:10,   
+        flexDirection:"row", 
+        alignItems:'center',
+        justifyContent:'center'
+    },  
+    nextArea: {
+        fontSize:17,
+        fontWeight:'bold',
+        alignContent:'flex-end',  
+        marginRight:20,
+        justifyContent:"flex-end",
+        marginTop:90,
+        color:"#4350c6",  
+        flexDirection:'row'
+    }, 
+    nextText: {
+        fontSize:17,
+        fontWeight:'bold',
+        textAlign:'right', 
+        marginRight:5,
+        color:"#4350c6",
     },
-    button:{ 
-        height:47,
-        backgroundColor:"#475F94",
-        borderRadius:20, 
-        alignContent:"center",
-        justifyContent:"center",
-        alignItems:"center",
-        margin:5,
-        shadowOffset: {
-            width:3,
-            height: 3,
-        },
-        shadowOpacity: 0.50,
-        shadowRadius: 4.65,
+    button:{   
+        margin:5,  
+    },
+
+    btn:  {
+        height:50,
+        width:350,
+        alignItems:"center",  
     },
     totuloBotao:{  
         fontWeight:"bold",
-        color:"#fff"
+        color:"#fff",
+        fontSize:16,
     }
 })
 
