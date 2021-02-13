@@ -36,9 +36,8 @@ export default class Anuncios extends Component {
             return(
                 <View style={styles.containerLoading}>
                     <ActivityIndicator
-                        size="large" color="#000"  
-                    />
-                    <Text style={styles.loadingText}>Aguardando dados da API</Text>
+                        size="large" color="#777"  
+                    /> 
                 </View> 
             )      
         }
@@ -48,9 +47,9 @@ export default class Anuncios extends Component {
                     <View style={styles.userArea}> 
                         <Text style={styles.nome}>Jeferson da Silva</Text> 
                     </View>  
-                    <TouchableOpacity style={styles.nextArea} onPress = { () => this.props.navigation.navigate('Perfil')  } >   
+                    <TouchableOpacity style={styles.nextArea}  >   
                        <Text style={styles.nextText}>Meu perfil</Text>  
-                       <Ionicons name="arrow-forward-outline" size={20} color={'#4350c6'}  /> 
+                       <Ionicons name="ellipsis-horizontal-outline" size={22} color={'#fff'}  /> 
                      </TouchableOpacity>
                      
                 </View>   
@@ -60,18 +59,37 @@ export default class Anuncios extends Component {
                             <TouchableOpacity  onPress = { () => this.props.navigation.navigate('PagAnuncio')  } > 
                                 <View   style={styles.line}>  
                                 
-                                    <Image style={styles.imagemAnimal} source={require('../img/mascara_adidas.jpg')}></Image>
+                                    <Image style={styles.imagemAnimal} source={require('../img/mascara2.jpg')}></Image>
 
                                     <View style={styles.areaAnuncio}>  
-                                        <View style={styles.info}>
-                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Tipo: </Text> Cães</Text> 
-                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Raça: </Text> Pastor-alemão</Text>  
-                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Porte: </Text> P</Text>
-                                            <Text style={styles.name}><Text style={{fontWeight: "bold"}}>Idade: </Text> 5 Anos</Text>   
+                                        <View style={styles.info}> 
+                                            <Text style={{fontWeight:'bold', color:'#777', fontSize:17}}>Mascara com Proteção Tripla</Text>
+                                            <Text style={styles.classe}>
+                                                <Text style={{fontWeight:"bold" ,fontSize:15}}>
+                                                    <Ionicons name={"return-down-forward-outline"} size={20}/> 
+                                                    Nivel de Proteção:
+                                                 </Text> 
+                                                Alto
+                                            </Text>  
+
+                                            <Text style={styles.classe}>
+                                                <Text style={{fontWeight:"bold" ,fontSize:15}}>
+                                                        <Ionicons name={"return-down-forward-outline"}   size={20}/> 
+                                                        Especificidade:
+                                                </Text> 
+                                                    Descartavel
+                                            </Text> 
+                                            <Text style={styles.classe}>
+                                                <Text style={{fontWeight:"bold" ,fontSize:15}}>
+                                                    <Ionicons name={"return-down-forward-outline"} size={20}/> 
+                                                    Classe do Produto:  
+                                                 </Text>  
+                                                N
+                                            </Text>   
                                             
                                         </View> 
                                         <View style={styles.info_t}>
-                                             <Ionicons name="add-circle-outline" size={30} color={"#777"}/>
+                                             <Ionicons name="caret-forward-outline" size={25} color={"#4350c6"}/>
                                             
                                         </View>
                                     </View>  
@@ -97,19 +115,23 @@ const styles = StyleSheet.create({
     }, 
     statusArea: {   
         flexDirection:"row",
-        justifyContent:'space-evenly',  
+        justifyContent:'space-between',  
+        backgroundColor:'#4350c6',
+        borderBottomRightRadius:10,
+        borderBottomLeftRadius:10,
         alignItems:"center", 
         height:70
     },
     nextArea: {
         fontSize:17,
         fontWeight:'bold',  
-        marginRight:20,  
+        marginRight:20,   
         margin:10,
         color:"#4350c6",  
         flexDirection:'row'
     }, 
     nextText: {
+        fontFamily:'OpenSans_700Bold',
         fontSize:15,
         fontWeight:'bold',
         textAlign:'right', 
@@ -132,7 +154,7 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         margin:10,
         borderRadius:5,
-        shadowColor: "#777",
+        shadowColor: "#4350c6",
         shadowOffset: {
             width:8,
             height: 4,
@@ -143,6 +165,12 @@ const styles = StyleSheet.create({
     },
     areaAnuncio: {
         flexDirection:'column',  
+    },
+
+    classe: {
+        fontSize:16,
+        color:"#7c7c7c",
+        fontFamily:'OpenSans_600SemiBold'
     },
     imagemAnimal: { 
         borderTopLeftRadius:3,   
@@ -168,22 +196,21 @@ const styles = StyleSheet.create({
     },
     info_t : {
         alignItems:"flex-end", 
-        marginRight:5
+        marginRight:5,
+        flex:1,
     },
     name: {
         fontSize:15,
-        color:"#4350c6"
+        color:"#fff", 
     },
-    nome:{
+    nome:{  
         fontSize:16,
+        margin:20,
         fontWeight:"bold",
-        color:'#4350c6'
+        fontFamily:'OpenSans_700Bold',
+        color:'#fff'
     }, 
-    userArea: {
-        flex:1,
-        justifyContent:"center",
-        flexDirection:"row",   
-        alignItems:"center"
+    userArea: {   
     },   
     
 })

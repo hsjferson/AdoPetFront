@@ -9,13 +9,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Welcome from './src/screens/Welcome';
 import CadastroUser from './src/screens/CadastroUser';
-import Anuncios from './src/screens/Anuncios'; 
-import Perfil from './src/screens/Perfil'; 
-import CadastroAnimal from './src/screens/CadastroAnimal'; 
+import Anuncios from './src/screens/Anuncios';  
 import Login from './src/screens/Login'; 
-import PagAnuncio from './src/screens/PagAnuncio';   
+import PagAnuncio from './src/screens/PagAnuncio'; 
+
 import { useFonts , Comfortaa_400Regular, Comfortaa_500Medium, Comfortaa_700Bold} from '@expo-google-fonts/comfortaa';
-import { OpenSans_400Regular  } from '@expo-google-fonts/open-sans';
+import { OpenSans_600SemiBold , OpenSans_700Bold } from '@expo-google-fonts/open-sans'; 
+
 import { AppLoading } from 'expo';
 
 const Stack = createStackNavigator ();
@@ -26,7 +26,8 @@ export default function App() {
     Comfortaa_400Regular,
     Comfortaa_500Medium,
     Comfortaa_700Bold,
-    OpenSans_400Regular
+    OpenSans_600SemiBold,
+    OpenSans_700Bold,  
   });
 
   if(!fontsLoaded) {
@@ -35,27 +36,25 @@ export default function App() {
 
   return ( 
     <NavigationContainer >
-      <Stack.Navigator initialRouteName="Welcome"> 
+      <Stack.Navigator initialRouteName="Welcome"  > 
 
-          <Stack.Screen name="Welcome" component={Welcome} options={{title:'Bem Vindo',
-          headerStyle: {backgroundColor:'#fff'} , headerTintColor:'#000'  
+          <Stack.Screen name="Welcome" component={Welcome} options={{title:'' ,
             }}
           />
 
-          <Stack.Screen name="CadastroUser" component={CadastroUser}  options={{title:''}} 
+          <Stack.Screen name="CadastroUser" component={CadastroUser}  options={{title:'',headerBackTitleVisible:null,  }} 
           /> 
 
-          <Stack.Screen name="Anuncios" component={Anuncios} options={{title:'Anuncios Disponiveis'}} /> 
+          <Stack.Screen name="Anuncios" component={Anuncios} options={{title:'',headerTintColor:"#777", headerBackTitleVisible:null,  }} />  
 
-          <Stack.Screen name="Perfil" component={Perfil} options={{title:'Meu perfil'}} /> 
+          <Stack.Screen name="Login" component={Login} options={{title:'',headerTintColor:"#777", headerBackTitleVisible:null, }} /> 
 
-          <Stack.Screen name="CadastroAnimal" component={CadastroAnimal} options={{title:'Cadastre'}} /> 
-
-          <Stack.Screen name="Login" component={Login} options={{title:'Login'}} /> 
-
-          <Stack.Screen name="PagAnuncio" component={PagAnuncio} options={{title:'PagAnuncio'}} /> 
+          <Stack.Screen name="PagAnuncio" component={PagAnuncio} options={{title:'',headerTintColor:"#777", headerBackTitleVisible:null ,  }} /> 
       </Stack.Navigator>
+
+      <StatusBar style="auto" />
     </NavigationContainer>
+    
   );
 }
  

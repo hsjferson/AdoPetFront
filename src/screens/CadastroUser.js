@@ -1,6 +1,6 @@
 import React, { Component , useState} from 'react';
 import {View, Text, StyleSheet, TextInput, Image, Button, Alert, Br, SafeAreaView, TouchableOpacity, ImageBackground } from 'react-native';
-  
+ 
 import GradientButton from 'react-native-gradient-buttons';
  
 
@@ -31,7 +31,7 @@ export default class CadastroUser extends Component {
                    <View style={styles.area}> 
                     <SafeAreaView style={styles.form}>
                         <View style={styles.areaAvatar}>
-                             <Text style={styles.logo}>Adopet</Text>
+                             <Text style={styles.logo}>UMask</Text>
                              <Text style={styles.title}>Cadastre-se</Text>
                         </View> 
                         <View style={styles.formInfo}>
@@ -75,7 +75,9 @@ const styles = StyleSheet.create({
         alignContent:'center', 
     }, 
     area: {
-        alignItems:"center", 
+        alignItems:"center",  
+        marginTop:60,   
+        justifyContent:"center",
         margin:30
     },
     logo: {

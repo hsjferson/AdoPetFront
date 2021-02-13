@@ -71,8 +71,7 @@ const styles = StyleSheet.create({
         fontFamily:'Comfortaa_700Bold',
         color:'#4350c6'
     },  
-    slogan : {
-        fontFamily:'OpenSans_400Regular',
+    slogan : { 
         fontSize:18,
         color:'#4350c6',
         fontWeight:'bold'
